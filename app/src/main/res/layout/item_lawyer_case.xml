@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="8dp"
+        android:text="案例内容案例内容案例内容案例内容案例内容案例内容
+案例内容案例内容案例内容案例内容案例内容案例内容"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="8dp"
+        android:text="案例内容案例内容案例内容案例内容案例内容案例内容
+案例内容案例内容案例内容案例内容案例内容案例内容"
+        android:textColor="#ff333333"
+        android:textSize="14sp" />
+
+    <com.uni.ppk.widget.CustomRecyclerView
+        android:id="@+id/rlv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <com.uni.ppk.widget.ninegrid.NineGridTestLayout
+        android:id="@+id/ninegridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:sapcing="4dp" />
+
+</LinearLayout>

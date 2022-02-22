@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/transparent" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_8radius_theme"
+            android:gravity="center_horizontal"
+            android:padding="11dp"
+            android:text="立即支付"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_above="@id/tv_pay"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rlyt_video2"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        android:fillViewport="true">
+
+                        <com.tencent.liteav.demo.play.SuperPlayerView
+                            android:id="@+id/video_view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/pb_loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/iv_video"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_default_wide" />
+
+                        <ImageView
+                            android:id="@+id/iv_video_start"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/iv_video_start" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:background="@drawable/player_top_shadow"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/iv_black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="16dp"
+                                android:paddingTop="14dp"
+                                android:paddingRight="7dp"
+                                android:src="@mipmap/ic_back_video" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llyt_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_video_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="16dp"
+                            android:textColor="@color/color_333333"
+                            android:textSize="16sp" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="16dp">
+
+                            <TextView
+                                android:id="@+id/tv_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:textColor="#ff999999"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tv_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/tv_number"
+                                android:textColor="#ff999999"
+                                android:textSize="12sp" />
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/llyt_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="课程价格"
+                                android:textColor="#ff333333"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="¥"
+                                android:textColor="#ffe33b2d"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/tv_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="100"
+                                android:textColor="#ffe33b2d"
+                                android:textSize="24sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="16dp"
+                            android:lineSpacingExtra="5dp"
+                            android:textColor="#ff666666"
+                            android:textSize="12sp" />
+
+                        <com.uni.ppk.widget.CustomRecyclerView
+                            android:id="@+id/rlv_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlyt_bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@color/bg_color">
+
+                            <TextView
+                                android:id="@+id/tv_submit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginBottom="9dp"
+                                android:background="@drawable/shape_8radius_theme"
+                                android:gravity="center"
+                                android:paddingLeft="11dp"
+                                android:paddingRight="11dp"
+                                android:text="发布"
+                                android:textColor="#ffffffff"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/edt_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="9dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginBottom="9dp"
+                                android:layout_toLeftOf="@id/tv_submit"
+                                android:background="@drawable/shape_white_radius8"
+                                android:gravity="center_vertical"
+                                android:hint="添加评论"
+                                android:imeOptions="actionSend"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:singleLine="true"
+                                android:textColor="@color/color_333333"
+                                android:textColorHint="@color/color_BFBFBF"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <ImageView
+            android:id="@+id/iv_back_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status_bar"
+            android:padding="16dp"
+            android:src="@mipmap/ic_back_video" />
+
+    </RelativeLayout>
+
+</LinearLayout>

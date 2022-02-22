@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.uni.commoncore.widget.CircleImageView
+            android:id="@+id/iv_header"
+            android:layout_width="75dp"
+            android:scaleType="centerCrop"
+            android:layout_height="75dp"
+            android:src="@mipmap/ic_default_header" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:text="4.8分"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_toLeftOf="@id/tv_score"
+            android:layout_toRightOf="@id/iv_header"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="郭知原律师"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/iv_header"
+            android:paddingLeft="16dp"
+            android:text="广州市 | 律师事务所名称"
+            android:textColor="#ff666666"
+            android:textSize="12sp" />
+
+        <com.uni.ppk.widget.CustomRecyclerView
+            android:id="@+id/rlv_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_address"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@id/iv_header" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlv_label"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:text="¥400/时"
+            android:textColor="@color/theme"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_price"
+            android:layout_toRightOf="@id/iv_header"
+            android:paddingLeft="16dp"
+            android:text="服务 241 人"
+            android:textColor="#ff999999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_price"
+            android:layout_toLeftOf="@id/tv_price"
+            android:layout_toRightOf="@id/tv_service"
+            android:gravity="right"
+            android:text="约见价格"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/view_line" />
+
+</LinearLayout>

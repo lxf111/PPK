@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llyt_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_mine_top"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/view_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/transparent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llyt_mine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llyt_top"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="-78dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_white_radius8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center_horizontal"
+                    android:text="未登录"
+                    android:textColor="#ff333333"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_info"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="用户资料"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_order"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="服务订单"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_community"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_community"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的咨询"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_tool"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_tool"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="常用工具"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_public"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_public"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的发布"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_course"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的课程"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_recommend"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的推荐"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_vip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_vip"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的会员"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_ticket"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="我的发票"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_share"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="推荐给好友"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_about"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="关于诉问"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_feedback"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="意见反馈"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_help"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="帮助中心"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_mine_setting"
+                    android:drawableRight="@mipmap/ic_right_detail"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:text="设置"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <com.uni.commoncore.widget.CircleImageView
+                android:id="@+id/iv_header"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/llyt_top"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-120dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/mine_no_login_header" />
+
+            <ImageView
+                android:id="@+id/iv_vip"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@id/iv_header"
+                android:layout_alignRight="@id/iv_header"
+                android:src="@mipmap/ic_mine_vip_ident"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

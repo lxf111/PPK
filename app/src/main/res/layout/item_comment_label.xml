@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="8dp">
+
+    <TextView
+        android:id="@+id/tv_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_25radius_08ff9f48"
+        android:paddingLeft="8dp"
+        android:paddingTop="1dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="1dp"
+        android:text="评价标签"
+        android:textColor="#ffff9f48"
+        android:textSize="11sp" />
+
+</LinearLayout>

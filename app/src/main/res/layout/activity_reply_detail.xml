@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlyt_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_color">
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="9dp"
+                android:background="@drawable/shape_8radius_theme"
+                android:gravity="center"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp"
+                android:text="发布"
+                android:textColor="#ffffffff"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edt_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="9dp"
+                android:layout_toLeftOf="@id/tv_submit"
+                android:background="@drawable/shape_white_radius8"
+                android:gravity="center_vertical"
+                android:hint="添加评论"
+                android:paddingLeft="12dp"
+                android:imeOptions="actionSend"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textColorHint="@color/color_BFBFBF"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rlyt_bottom">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <com.uni.commoncore.widget.CircleImageView
+                                android:id="@+id/iv_header"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:scaleType="centerCrop"
+                                android:src="@mipmap/ic_default_header" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_toRightOf="@id/iv_header"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_name"
+                                    android:layout_width="wrap_content"
+                                    android:drawablePadding="8dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/color_333333"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:lineSpacingExtra="5dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_time"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="9dp"
+                                    android:textColor="#ffbfbfbf"
+                                    android:textSize="11sp" />
+
+                                <LinearLayout
+                                    android:id="@+id/llyt_reply"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="#FBFBFB"
+                                    android:orientation="vertical"
+                                    android:paddingBottom="8dp">
+
+                                    <com.uni.ppk.widget.CustomRecyclerView
+                                        android:id="@+id/rlv_reply"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </RelativeLayout>
+</LinearLayout>

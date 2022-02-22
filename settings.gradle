@@ -1,0 +1,2 @@
+include ':app', ':benbencommoncore', ':updateapputils', ':ucrop', ':picture_library', ':easemob_lib', ':libsuperplayer'
+rootProject.name='PinPinKan'

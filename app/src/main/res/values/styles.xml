@@ -1,0 +1,123 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!--底部导航RadioGroup-->
+    <style name="main_bottom_tab_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textColor">@drawable/selector_rbtext_color</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!--pop弹出隐藏动画-->
+    <style name="popwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <!--pop弹出隐藏动画-->
+    <style name="popwindow_anim_style2">
+        <item name="android:windowEnterAnimation">@anim/popwindow_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/popwindow_anim_out</item>
+    </style>
+
+    <!--两种启动方式-->
+    <!--第一种：禁止出现白屏黑屏-->
+    <style name="TransparentSplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar" tools:ignore="NewApi">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!--第二种：启动显示自己的界面（默认这种）-->
+    <style name="SplashThemes" parent="@style/Theme.AppCompat.Light.NoActionBar" tools:ignore="NewApi">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@mipmap/ic_splash_bg</item>
+    </style>
+
+    <declare-styleable name="StyleFloatRatingBar">
+        <attr name="FloatRatingBarStarForegroundDrawable" format="reference"></attr>
+        <attr name="FloatRatingBarStarBackgroundDrawable" format="reference"></attr>
+        <attr name="FloatRatingBarStarDistance" format="dimension"></attr>
+        <attr name="FloatRatingBarStarWidth" format="dimension"></attr>
+        <attr name="FloatRatingBarStarHeight" format="dimension"></attr>
+        <attr name="FloatRatingBarStarRate" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="verify_EditText">
+        <!-- 验证码的个数 -->
+        <attr name="verify_count" format="integer"/>
+        <!--        TextView 的宽度-->
+        <attr name="verify_width" format="dimension"/>
+        <!--        TextView 的高度-->
+        <attr name="verify_height" format="dimension"/>
+        <!--        TextView 的间隔-->
+        <attr name="verify_margin" format="dimension"/>
+        <!--        TextView 的字体大小-->
+        <attr name="verify_textSize" format="dimension"/>
+        <!--        TextView 的字体颜色-->
+        <attr name="verify_textColor" format="color"/>
+        <!-- TextView 无值背景 -->
+        <attr name="verify_background_normal" format="reference"/>
+        <!-- TextView 有值背景 -->
+        <attr name="verify_background_selected" format="reference"/>
+        <!--        是否隐藏密码-->
+        <attr name="verify_password" format="boolean"/>
+        <!--        密码显示时间ms-->
+        <attr name="verify_password_visible_time" format="integer"/>
+        <!--        editText的输入类型 -->
+        <attr name="verify_inputType">
+            <flag name="none" value="0x00000000" />
+            <flag name="text" value="0x00000001" />
+            <flag name="textCapCharacters" value="0x00001001" />
+            <flag name="textCapWords" value="0x00002001" />
+            <flag name="textCapSentences" value="0x00004001" />
+            <flag name="textAutoCorrect" value="0x00008001" />
+            <flag name="textAutoComplete" value="0x00010001" />
+            <flag name="textMultiLine" value="0x00020001" />
+            <flag name="textImeMultiLine" value="0x00040001" />
+            <flag name="textNoSuggestions" value="0x00080001" />
+            <flag name="textUri" value="0x00000011" />
+            <flag name="textEmailAddress" value="0x00000021" />
+            <flag name="textEmailSubject" value="0x00000031" />
+            <flag name="textShortMessage" value="0x00000041" />
+            <flag name="textLongMessage" value="0x00000051" />
+            <flag name="textPersonName" value="0x00000061" />
+            <flag name="textPostalAddress" value="0x00000071" />
+            <flag name="textPassword" value="0x00000081" />
+            <flag name="textVisiblePassword" value="0x00000091" />
+            <flag name="textWebEditText" value="0x000000a1" />
+            <flag name="textFilter" value="0x000000b1" />
+            <flag name="textPhonetic" value="0x000000c1" />
+            <flag name="textWebEmailAddress" value="0x000000d1" />
+            <flag name="textWebPassword" value="0x000000e1" />
+            <flag name="number" value="0x00000002" />
+            <flag name="numberSigned" value="0x00001002" />
+            <flag name="numberDecimal" value="0x00002002" />
+            <flag name="numberPassword" value="0x00000012" />
+            <flag name="phone" value="0x00000003" />
+            <flag name="datetime" value="0x00000004" />
+            <flag name="date" value="0x00000014" />
+            <flag name="time" value="0x00000024" />
+        </attr>
+    </declare-styleable>
+</resources>

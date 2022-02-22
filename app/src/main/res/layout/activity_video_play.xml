@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlyt_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.tencent.liteav.demo.play.SuperPlayerView
+            android:id="@+id/video_view2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/transparent" />
+
+        <ImageView
+            android:id="@+id/iv_left_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_top"
+            android:padding="16dp"
+            android:src="@mipmap/ic_back_white" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center|right"
+            android:max="0"
+            android:maxHeight="2.0dip"
+            android:minHeight="2.0dip"
+            android:progress="0"
+            android:visibility="gone" />
+        <!--            android:progressDrawable="@drawable/play_seekbar_progress"-->
+        <!--            android:thumb="@drawable/play_seekbar_icon"-->
+        <ImageView
+            android:id="@+id/iv_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/seekbar"
+            android:layout_alignParentRight="true"
+            android:padding="16dp"
+            android:src="@mipmap/ic_video_large"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/progress_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toLeftOf="@id/iv_large"
+            android:text="00:00/00:00"
+            android:visibility="gone" />
+        <!--        android:textColor="@color/c8"-->
+        <!--        android:textSize="@dimen/h6"-->
+        <ImageView
+            android:id="@+id/iv_conver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_default_wide"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/iv_video_start"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</LinearLayout>

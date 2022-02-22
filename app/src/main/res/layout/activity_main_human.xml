@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/theme" />
+
+    <com.uni.ppk.widget.NoScrollViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent">
+
+        <RadioGroup
+            android:id="@+id/main_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_main_home"
+                style="@style/main_bottom_tab_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/main_home1"
+                android:gravity="center"
+                android:text="找工作" />
+
+            <RadioButton
+                android:id="@+id/rb_main_discount"
+                style="@style/main_bottom_tab_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/main_discount1"
+                android:gravity="center"
+                android:text="找工人"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/rb_main_tea"
+                style="@style/main_bottom_tab_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/main_tea"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/rb_main_service"
+                style="@style/main_bottom_tab_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:button="@null"
+                android:drawableTop="@drawable/main_service1"
+                android:gravity="center"
+                android:text="收藏" />
+
+            <RadioButton
+                android:id="@+id/rb_main_mine"
+                style="@style/main_bottom_tab_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:button="@null"
+                android:drawableTop="@drawable/main_mine1"
+                android:gravity="center"
+                android:text="会员" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@id/main_radio_group"
+            android:background="@color/view_line" />
+
+        <ImageView
+            android:id="@+id/iv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_main_question"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

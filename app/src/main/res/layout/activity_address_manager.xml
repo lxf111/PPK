@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title_bar" />
+
+    <com.androidkun.xtablayout.XTabLayout
+        android:id="@+id/tl_address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:xTabIndicatorWidth="50dp"
+        app:xTabSelectedTextColor="@color/theme"
+        app:tabTextColor="@color/theme"
+        app:xTabIndicatorHeight="2dp"
+        app:xTabMode="scrollable"
+        app:xTabSelectedTextSize="15sp"
+        app:xTabTextColor="@color/theme"
+        app:xTabTextSize="15sp">
+
+    </com.androidkun.xtablayout.XTabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>

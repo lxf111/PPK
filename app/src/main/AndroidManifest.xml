@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.uni.ppk"
+    tools:ignore="ProtectedPermissions">
+
+    <permission
+        android:name="com.uni.ppk.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- Required -->
+    <uses-permission android:name="com.uni.ppk.permission.JPUSH_MESSAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_MOCK_LOCATION"
+        tools:ignore="MockLocation" />
+
+    <application
+        android:name="com.uni.ppk.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="LockedOrientationActivity">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--启动页-->
+        <activity
+            android:name="com.uni.ppk.SplashActivity"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!--启动页2-->
+        <activity
+            android:name="com.uni.ppk.Splash2Activity"
+            android:screenOrientation="portrait" />
+
+        <!--首页-->
+        <activity
+            android:name="com.uni.ppk.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--获取验证码-->
+        <activity
+            android:name=".ui.login.CodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.PwdLoginActivity"
+            android:label="密码登录"
+            android:screenOrientation="portrait" />
+
+        <!--图片放大-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.EnlargePhotoActivity"
+            android:screenOrientation="portrait" />
+        <!--网页-->
+        <activity
+            android:name="com.uni.ppk.NormalWebViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!--消息详情-->
+        <activity
+            android:name="com.uni.ppk.ui.message.activity.MessageDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--视频回复详情-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.VideoReplyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--/////////////////////////首页\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!--视频放大-->
+        <activity android:name="com.uni.ppk.ui.home.activity.VideoPlayActivity" />
+        <!--查看合约详情-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ContractDetailActivity"
+            android:screenOrientation="portrait" />
+        <!--搜索-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <!--城市选择-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.CitySelectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--律所详情-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.LawFirmActivity"
+            android:screenOrientation="portrait" />
+        <!--律师详情-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.LawyerDetailActivity"
+            android:screenOrientation="portrait" />
+        <!--下单过度和选择分类界面-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderPromptActivity"
+            android:screenOrientation="portrait" />
+        <!--代写文书更多分类-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.BookClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!--其他分类更多-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OtherClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!--文书下单-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderBookActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--法律咨询-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderEnquireActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--选择金额-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.SelectMoneyActivity"
+            android:screenOrientation="portrait" />
+        <!--案件诉讼-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderLawsuitActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--合同服务-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderContractActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--委托律师-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderEntrustActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--检验原手机号-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.CheckPhoneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--法律顾问-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderAdviserActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--文件翻译-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderTranslateActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--诉讼投资-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderInvestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--案件执行-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderExecuteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--案件诊断-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderDiagnosisActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--大律约见-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderAppointActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--诉讼指导-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.OrderGuideActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--法务110-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.Order110Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--首页全部分类-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.HomeClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!--支付定金-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.CostEstimatingActivity"
+            android:screenOrientation="portrait" />
+        <!--支付-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.PayMoneyActivity"
+            android:screenOrientation="portrait" />
+        <!--支付成功-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.PaySuccessActivity"
+            android:screenOrientation="portrait" />
+        <!--会员权益-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.VipListActivity"
+            android:screenOrientation="portrait" />
+        <!--在线课堂-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.ClassroomActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--视频详情-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.VideoDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize" />
+        <!--选择成功-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.SelectSuccessActivity"
+            android:screenOrientation="portrait" />
+
+        <!--//////////////////社群\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!--社群详情-->
+        <activity
+            android:name="com.uni.ppk.ui.community.activity.CommunityDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--回复详情-->
+        <activity
+            android:name="com.uni.ppk.ui.community.activity.ReplyDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--发布免费社群-->
+        <activity
+            android:name="com.uni.ppk.ui.community.activity.PublicCommunityActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--发布收费的咨询-->
+        <activity
+            android:name="com.uni.ppk.ui.community.activity.PublicServiceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--他人主页-->
+        <activity
+            android:name="com.uni.ppk.ui.community.activity.OtherInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--////////////////////消息\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!--系统消息-->
+        <activity
+            android:name="com.uni.ppk.ui.message.activity.SystemMessageActivity"
+            android:screenOrientation="portrait" />
+
+        <!--//////////////////////////登录注册\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!--密码登录界面-->
+        <activity
+            android:name="com.uni.ppk.ui.login.LoginActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <!--注册-->
+        <activity
+            android:name="com.uni.ppk.ui.login.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <!--忘记密码-->
+        <activity
+            android:name="com.uni.ppk.ui.login.RetrievePasswordActivity"
+            android:label="忘记密码"
+            android:screenOrientation="portrait" />
+        <!--短信验证登录-->
+        <activity
+            android:name="com.uni.ppk.ui.login.LoginMessageActivity"
+            android:screenOrientation="portrait" />
+
+        <!--////////////////////个人中心\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <!--我的钱包-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyWalletActivity"
+            android:screenOrientation="portrait" />
+        <!--个人信息-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.PersonDataActivity"
+            android:screenOrientation="portrait" />
+        <!--个人信息编辑-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.PersonEditorActivity"
+            android:screenOrientation="portrait" />
+        <!--地址管理-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.AddressActivity"
+            android:screenOrientation="portrait" />
+        <!--添加地址-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.AddAddressActivity"
+            android:screenOrientation="portrait" />
+        <!--选择地区-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.SelectAreaActivity"
+            android:screenOrientation="portrait" />
+        <!--绑定手机号第一步验证-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.BindingPhoneActivity"
+            android:screenOrientation="portrait" />
+        <!--绑定手机号-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.BindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <!--修改手机号-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.UpdatePhoneActivity"
+            android:screenOrientation="portrait" />
+        <!--充值-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.RechargeActivity"
+            android:screenOrientation="portrait" />
+        <!--流水-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyAccountActivity"
+            android:screenOrientation="portrait" />
+        <!--积分明细-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.IntegralDetailActivity"
+            android:screenOrientation="portrait" />
+        <!--设置-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <!--忘记密码-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.UpdatePassword"
+            android:screenOrientation="portrait" />
+        <!--意见反馈-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.FeedbackActivity"
+            android:screenOrientation="portrait" />
+        <!--人工客服-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.CustomerActivity"
+            android:screenOrientation="portrait" />
+        <!--我的二维码-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyQrCodeActivity"
+            android:screenOrientation="portrait" />
+        <!--通知-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.NoticeActivity"
+            android:screenOrientation="portrait" />
+        <!--订单详情-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.OrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <!--帮助中心-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.HelpActivity"
+            android:screenOrientation="portrait" />
+        <!--关于我们-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <!--我的发票-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.TicketActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--我的推荐-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyRecommendActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--提现-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.WithdrawActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--常用工具-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.CommonToolActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--律师费估算-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ToolLawyerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--诉讼费估算-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ToolLawsuitActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--利息计算器-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ToolInterestActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--天数计算器-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ToolDaysActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--更多案例-->
+        <activity
+            android:name="com.uni.ppk.ui.home.activity.LawyerCaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--律师评价-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.PublicEvaluateActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--服务订单-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.OrderActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--我的课程-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyCourseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--我发布的-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyPublicActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--我的咨询-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyServiceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--我的会员-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.MyVipActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--服务订单详情-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ServiceDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--三方登录绑定手机号-->
+        <activity
+            android:name="com.uni.ppk.ui.login.BindPhoneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!--收益明细-->
+        <activity
+            android:name="com.uni.ppk.ui.mine.activity.ProfitListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--高德定位-->
+        <service android:name="com.amap.api.location.APSService"></service>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="a4b664f238431778f97c966397ff9eec"><!--自己的appId-->
+
+        </meta-data>
+
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.uni.ppk.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wxb686f5dd4e432c4e" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uni.ppk.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--抖音-->
+        <activity
+            android:name="com.uni.ppk.douyin.DouYinEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.uni.ppk" />
+
+        <!--/////////////////////////////环信\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
+        <activity android:name="com.uni.ppk.ui.message.activity.ChatActivity" />
+        <activity
+            android:name="com.uni.ppk.ui.message.activity.VoiceCallActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.uni.ppk.ui.message.activity.VideoCallActivity"
+            android:launchMode="singleInstance" />
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1113200908042886#demo" />
+        <!-- 声明SDK所需的service SDK核心功能-->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!-- 支付宝登录 -->
+        <!-- 为了使用 "通用跳转 SDK" 的能力，需要在你的 App 的 AndroidManifest.xml 中添加这一项 -->
+        <!-- 并合理设置 android:scheme 的值 -->
+        <activity
+            android:name="com.alipay.sdk.app.AlipayResultActivity"
+            tools:node="merge">
+            <intent-filter tools:node="replace">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="suwenuser" />
+            </intent-filter>
+        </activity>
+        <!--极光推送-->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="ecdcfa4d690a92a054a4f741" />
+
+        <!-- Required SDK 核心功能-->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 3.0.9 Required SDK 核心功能-->
+        <provider
+            android:name="cn.jpush.android.service.DataProvider"
+            android:authorities="com.uni.ppk.DataProvider"
+            android:exported="true"
+            tools:replace="android:exported,android:authorities" />
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.uni.ppk" />
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <category android:name="com.uni.ppk" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能-->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+
+        <!-- Since JCore2.0.0 Required SDK核心功能-->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service
+            android:name="com.uni.ppk.service.JPushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+        <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name="com.uni.ppk.receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <category android:name="com.uni.ppk" />
+            </intent-filter>
+        </receiver>
+
+        <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name="com.uni.ppk.receiver.MyReceiver"
+            android:enabled="true">
+            <intent-filter>
+
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.uni.ppk" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

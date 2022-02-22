@@ -1,0 +1,64 @@
+框架包含内容
+工具类介绍
+1.圆形头像，圆角头像控件
+2.ACache轻缓存框架
+3.activity管理器
+4.AppUtils,可以获取渠道名，版本号，版本名称
+5.Base64,byte[],String 互转
+6.BitmapUtils bitmap处理的工具类
+7.CharSequenceUtils char处理的工具类
+8.ContextHolder,获取app上下文对象的工具类
+9.DateUtils,日期处理的工具类
+10.DecimalCalcUtils,PreciseCompute，浮点计算的工具类
+11.DensityUtil,dp、px、sp互转工具
+12.DeviceUtils,获取手机信息的工具类
+13.FastBlurUtils,高斯模糊的工具类
+14.FileUtils,文件管理的工具类
+15.IDCardValidateUtil,身份证号码验证的工具类
+16.ImageUtils，网络图片加载的工具类
+17.InputCheckUtil，常用输入内容检查的工具类
+18.JSONUtils,fastjson开源工具封装类
+19.ListUtils,list集合处理工具类
+20.LogUtils,log日志处理的统一工具类
+21.MediaUtils,关闭背景音乐的工具类
+22.NetWorkUtils，网络的工具类
+23.ObjectUtils，对象处理的工具类
+24.OnClickEventUtils，快速点击控制工具类
+25.ScreenUtils，获得屏幕相关的辅助类
+26.ScrollviewUtils，scrollview 滚动到底部的工具类
+27.SPUtils，偏好设置保存的工具类
+28.StatusBarUtils，状态栏工具类
+29.StringUtils，字符串处理工具类
+30.StyledDialogUtils，目前用于加载进度条的统一封装
+31.TCUtils，时间格式化，几分钟之前
+32.ThreadPoolUtils,线程池的工具类
+33.ToastUtils,自定义吐司 布局
+34.UUIDTool,获取uuid的工具类
+35.VUtil，获取通知栏工具类
+36.ZipUtils,解压，压缩工具类
+其他公共module
+1.banner 广告图片
+2.benbencommoncore 工具类的依赖库
+3.CommonDialog 通用对话框
+4.HiPermissionLibrary 权限请求库，Android8.0闪退已优化
+5.picture_library 相册选择库
+远程库引用简介
+1.//json解析用到的库
+api 'com.alibaba:fastjson:1.2.55'
+2.//二维码
+implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.3.4'
+3.//刷新控件
+api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
+//没有使用特殊Header，可以不加这行
+api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
+4.//混合布局控件
+api('com.alibaba.android:vlayout:1.2.8@aar') {
+       transitive = true
+}
+5.//Gson解析工具类
+api 'com.google.code.gson:gson:2.8.5'
+6.//table layout 使用的框架
+api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
+7.//图片选择
+api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+

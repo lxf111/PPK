@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00A2EA</color>
+    <color name="colorPrimaryDark">#00A2EA</color>
+    <color name="colorAccent">#00A2EA</color>
+
+    <color name="color_EC5413">#00A2EA</color>
+    <!--主题色-->
+    <color name="theme">#00A2EA</color>
+    <!--下划线颜色-->
+    <color name="view_line">#E6E6E6</color>
+    <!--背景色-->
+    <color name="bg_color">#F6F6F6</color>
+
+    <!--二维码的背景色-->
+    <color name="qr_code_state">#909193</color>
+    <!--金额-->
+    <color name="money_color">#F67617</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_EC4113">#EC4113</color>
+    <!--登录-->
+    <color name="color_C2C2C2">#C2C2C2</color>
+    <color name="color_C5C5C5">#C5C5C5</color>
+    <color name="color_BFBFBF">#BFBFBF</color>
+
+    <!--输入框的hint值-->
+    <color name="color_hint">#E6E6E6</color>
+
+    <!--会员值-->
+    <color name="vip_content">#E3D3AA</color>
+    <color name="color_ADADAD">#ADADAD</color>
+
+</resources>

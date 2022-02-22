@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--首页小模块-->
+    <declare-styleable name="AutoMaticPageGridView">
+        <!-- 行数 -->
+        <attr name="auto_lines" format="integer" />
+        <!-- 列数 -->
+        <attr name="auto_column" format="integer" />
+        <!-- 指示器宽 -->
+        <attr name="auto_dot_width" format="integer" />
+        <!-- 指示器高 -->
+        <attr name="auto_dot_height" format="integer" />
+        <!-- 指示器间距 -->
+        <attr name="auto_dot_margins" format="integer" />
+        <!-- 指示器距离下面的距离 -->
+        <attr name="auto_dot_bottom" format="integer" />
+        <!-- 指示器选中背景 -->
+        <attr name="auto_dot_select_background" format="reference" />
+        <!-- 指示器未选中背景 -->
+        <attr name="auto_dot_no_select_background" format="reference" />
+        <!-- 是否显示导航点 -->
+        <attr name="auto_button_visible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomRatingBar">
+        <!--尺寸值-->
+        <attr name="starImageSize" format="dimension" />
+        <!--星星间距-->
+        <attr name="starPadding" format="dimension" />
+        <!--星星总数-->
+        <attr name="starCount" format="integer" />
+        <!--空白的星星资源文件值-->
+        <attr name="starEmpty" format="reference" />
+        <!--满星资源文件值-->
+        <attr name="starFill" format="reference" />
+        <!--半星资源文件值-->
+        <attr name="starHalf" format="reference" />
+        <!--是否可点击boolean值-->
+        <attr name="clickable" format="boolean" />
+        <!--当前进度float值-->
+        <attr name="starStep" format="float" />
+        <!--每次进度方式的值，整星还是半星-->
+        <attr name="stepSize">
+            <enum name="Half" value="0" />
+            <enum name="Full" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="PasswordEditText">
+        <!--密码个数-->
+        <attr name="passwordNumber" format="integer" />
+        <!--密码原点的半径-->
+        <attr name="passwordRadius" format="dimension" />
+        <!--密码原点的颜色-->
+        <attr name="passwordColor" format="color" />
+        <!--分割线的颜色-->
+        <attr name="divisionLineColor" format="color" />
+        <!--分割线的大小  指宽度-->
+        <attr name="divisionLineSize" format="dimension" />
+        <!--背景边框的颜色-->
+        <attr name="bgColor" format="color" />
+        <!--背景边框的大小-->
+        <attr name="bgSize" format="dimension" />
+        <!--背景边框的圆角大小-->
+        <attr name="bgCorner" format="dimension" />
+
+    </declare-styleable>
+    <declare-styleable name="CircleProgressbar">
+        <attr name="in_circle_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="NineGridLayout">
+        <attr name="sapcing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+</resources>

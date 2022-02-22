@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="12dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@mipmap/ic_order_time"
+        android:paddingRight="16dp"
+        android:text="下单时间：2020-02-02"
+        android:textColor="#ff333333"
+        android:textSize="14sp" />
+</LinearLayout>
