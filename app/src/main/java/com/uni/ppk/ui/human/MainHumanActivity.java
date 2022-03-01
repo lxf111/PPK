@@ -54,6 +54,7 @@ import com.uni.ppk.receiver.ExampleUtil;
 import com.uni.ppk.ui.community.CommunityFragment;
 import com.uni.ppk.ui.community.activity.PublicServiceActivity;
 import com.uni.ppk.ui.home.fragment.HomeFragment;
+import com.uni.ppk.ui.human.fragment.HumanHomeFragment;
 import com.uni.ppk.ui.message.MessageFragment;
 import com.uni.ppk.ui.mine.bean.VersionBean;
 import com.uni.ppk.ui.mine.fragment.MineFragment;
@@ -138,8 +139,8 @@ public class MainHumanActivity extends BaseActivity {
             ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
         ArrayList<LazyBaseFragments> lazyBaseFragments = new ArrayList<>();
-        HomeFragment homeFragment = new HomeFragment();
-        CommunityFragment discountFragment = new CommunityFragment();
+        HumanHomeFragment homeFragment = new HumanHomeFragment();
+        HumanHomeFragment discountFragment = new HumanHomeFragment();
         ServiceFragment serviceFragment = new ServiceFragment();
         teaFragment = new MessageFragment();
         MineFragment mineFragment = new MineFragment();

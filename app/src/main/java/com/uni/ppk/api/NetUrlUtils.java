@@ -8,7 +8,7 @@ import com.uni.commoncore.utils.StringUtils;
 public class NetUrlUtils {
     //该项目接口命名，根据后台接口的真实地址，全参数命名
 //    public static String BASEURL = "http://47.93.233.254:8081/api/";
-    public static String BASEURL = "http://api.suwenlawyer.com/api/v1/";
+    public static String BASEURL = "https://hello.pinpinkan.vip/pinpinkan-app/api/v1/";
 
     /**
      * 图片地址拼接

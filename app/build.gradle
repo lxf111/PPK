@@ -101,4 +101,7 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:2.1.6'
     implementation project(path: ':libsuperplayer')
     implementation 'com.github.yhaolpz:FloatWindow:1.0.9'
+    //圆角 imageview
+    api 'com.makeramen:roundedimageview:2.3.0'
+    api 'de.hdodenhof:circleimageview:2.2.0'
 }

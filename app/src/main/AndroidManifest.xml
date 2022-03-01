@@ -84,6 +84,12 @@
 
         </activity>
 
+        <!--、、、、、、、、、、、、、招工模块、、、、、、、、、、、、、、、、、-->
+        <!--招工首页-->
+        <activity
+            android:name=".ui.human.MainHumanActivity"
+            android:screenOrientation="portrait" />
+
         <!--获取验证码-->
         <activity
             android:name=".ui.login.CodeActivity"

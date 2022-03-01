@@ -184,11 +184,7 @@ public class LoginActivity extends BaseActivity {
                 MyApplication.openActivity(mContext, PwdLoginActivity.class);
                 break;
             case R.id.tv_login:
-                if ("密码登录".equals(tvPwdLogin.getText().toString().trim())) {
-                    codeLogin();
-                } else {
-                    login();
-                }
+                login();
                 break;
             case R.id.tv_register_account:
                 MyApplication.openActivity(mContext, RegisterActivity.class);
@@ -229,43 +225,31 @@ public class LoginActivity extends BaseActivity {
             ToastUtils.show(mContext, "请输入正确的手机号");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("phone", "" + phone);
-        MyApplication.openActivity(mContext, CodeActivity.class, bundle);
-//        if (StringUtils.isEmpty(password)) {
-//            toast(getString(R.string.password_not_null));
-//            return;
-//        }
-//        if (password.length() < 6) {
-//            ToastUtils.show(mContext, "密码至少六位");
-//            return;
-//        }
-//        Map<String, Object> params = new HashMap<>();
-//        params.put("mobile", "" + phone);
-//        params.put("password", "" + password);
-//        HttpUtils.login(mContext, params, new MyCallBack() {
-//            @Override
-//            public void onSuccess(String response, String msg) {
-//                LoginBean bean = JSONUtils.parserObject(response, "userinfo", LoginBean.class);
-//                if (bean != null) {
-//                    LoginCheckUtils.saveLoginInfo(bean);
-//                    MyApplication.openActivity(mContext, MainActivity.class);
-//                    finish();
-//                } else {
-//                    ToastUtils.show(mContext, msg);
-//                }
-//            }
-//
-//            @Override
-//            public void onError(String msg, int code) {
-//                ToastUtils.show(mContext, msg);
-//            }
-//
-//            @Override
-//            public void onFail(Call call, IOException e) {
-//                ToastUtils.show(mContext, getString(R.string.service_error));
-//            }
-//        });
+        //login/forget/bindThird/verifyPhone/changePhone
+        Map<String, Object> params = new HashMap<>();
+        params.put("mobile", "" + phone);
+        params.put("event", "verifyPhone");
+        HttpUtils.sendMessage(mContext, params, new MyCallBack() {
+            @Override
+            public void onSuccess(String response, String msg) {
+//                TimerUtil timerUtil = new TimerUtil(tvCode);
+//                timerUtil.timers();
+                ToastUtils.show(mContext, msg);
+                Bundle bundle = new Bundle();
+                bundle.putString("phone", "" + phone);
+                MyApplication.openActivity(mContext, CodeActivity.class, bundle);
+            }
+
+            @Override
+            public void onError(String msg, int code) {
+                ToastUtils.show(mContext, msg);
+            }
+
+            @Override
+            public void onFail(Call call, IOException e) {
+                ToastUtils.show(mContext, getString(R.string.service_error));
+            }
+        });
     }
 
     //验证码登录

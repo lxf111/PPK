@@ -50,7 +50,7 @@ public class HttpUtils {
      */
     public static void sendMessage(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
         params.put("is_test", "1");
-        getData(mContent, params, "5b5bdc44796e8", callBack, true);
+        getData(mContent, params, "sms/aliSend", callBack, true);
     }
 
     /**

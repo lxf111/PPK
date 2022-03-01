@@ -19,6 +19,8 @@ import com.uni.ppk.api.MyCallBack;
 import com.uni.ppk.base.BaseActivity;
 import com.uni.ppk.pop.WornPopup;
 import com.uni.ppk.ui.home.bean.HomeBannerBean;
+import com.uni.ppk.ui.human.MainHumanActivity;
+import com.uni.ppk.utils.LoginCheckUtils;
 import com.uni.ppk.widget.progressbar.CircleProgressbar;
 
 import java.io.IOException;
@@ -129,38 +131,47 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void getAdvert() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("typeid", "" + 6);
-        params.put("app_type", "" + 1);
-        HttpUtils.homeBanner(mContext, params, new MyCallBack() {
-            @Override
-            public void onSuccess(String response, String msg) {
-                List<HomeBannerBean> mBannerBeans = JSONUtils.jsonString2Beans(response, HomeBannerBean.class);
-                if (mBannerBeans != null && mBannerBeans.size() > 0) {
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("bean", mBannerBeans.get(0));
-                    MyApplication.openActivity(mContext, Splash2Activity.class, bundle);
-                } else {
-                    Intent intent = new Intent(mContext, MainActivity.class);
-                    startActivity(intent);
-                }
-                finish();
-            }
-
-            @Override
-            public void onError(String msg, int code) {
-                Intent intent = new Intent(mContext, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void onFail(Call call, IOException e) {
-                Intent intent = new Intent(mContext, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        if (LoginCheckUtils.checkUserIsLogin(mContext)) {
+            Intent intent = new Intent(mContext, MainHumanActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(mContext, MainHumanActivity.class);
+//                Intent intent = new Intent(mContext, LoginActivity.class);
+            startActivity(intent);
+        }
+        finish();
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("typeid", "" + 6);
+//        params.put("app_type", "" + 1);
+//        HttpUtils.homeBanner(mContext, params, new MyCallBack() {
+//            @Override
+//            public void onSuccess(String response, String msg) {
+//                List<HomeBannerBean> mBannerBeans = JSONUtils.jsonString2Beans(response, HomeBannerBean.class);
+//                if (mBannerBeans != null && mBannerBeans.size() > 0) {
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("bean", mBannerBeans.get(0));
+//                    MyApplication.openActivity(mContext, Splash2Activity.class, bundle);
+//                } else {
+//                    Intent intent = new Intent(mContext, MainActivity.class);
+//                    startActivity(intent);
+//                }
+//                finish();
+//            }
+//
+//            @Override
+//            public void onError(String msg, int code) {
+//                Intent intent = new Intent(mContext, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//
+//            @Override
+//            public void onFail(Call call, IOException e) {
+//                Intent intent = new Intent(mContext, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     //初始化圆形进度条
