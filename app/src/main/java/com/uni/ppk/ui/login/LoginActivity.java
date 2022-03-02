@@ -228,12 +228,10 @@ public class LoginActivity extends BaseActivity {
         //login/forget/bindThird/verifyPhone/changePhone
         Map<String, Object> params = new HashMap<>();
         params.put("mobile", "" + phone);
-        params.put("event", "verifyPhone");
+        params.put("event", "login");
         HttpUtils.sendMessage(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {
-//                TimerUtil timerUtil = new TimerUtil(tvCode);
-//                timerUtil.timers();
                 ToastUtils.show(mContext, msg);
                 Bundle bundle = new Bundle();
                 bundle.putString("phone", "" + phone);
@@ -403,26 +401,11 @@ public class LoginActivity extends BaseActivity {
 
     private void thirdLogin(String openId, String type, String header, String name) {
         Map<String, Object> params = new HashMap<>();
-        params.put("type", "" + type);
-        //type【登录类型1：微信，2：QQ，3：抖音，4：支付宝】
-        switch (type) {
-            case "1":
-                params.put("wx_unionid", "" + openId);
-                break;
-            case "2":
-                params.put("qq_unionid", "" + openId);
-                break;
-            case "3":
-                params.put("dy_unionid", "" + openId);
-                break;
-            case "4":
-                params.put("alipay_unionid", "" + openId);
-                break;
-        }
+        params.put("openId", "" + openId);
         HttpUtils.thirdLogin(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {
-                LoginBean bean = JSONUtils.parserObject(response, "userinfo", LoginBean.class);
+                LoginBean bean = JSONUtils.parserObject(response, "user", LoginBean.class);
                 if (bean != null) {
                     LoginCheckUtils.saveLoginInfo(bean);
                     MyApplication.openActivity(mContext, MainActivity.class);

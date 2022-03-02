@@ -158,32 +158,32 @@ public class LoginCheckUtils {
 
     //保存登录信息
     public static void saveLoginInfo(LoginBean bean) {
-        MyApplication.mPreferenceProvider.setToken("" + bean.getUser_token());
+        MyApplication.mPreferenceProvider.setToken("" + bean.getToken());
         MyApplication.mPreferenceProvider.setUId("" + bean.getId());
-        MyApplication.mPreferenceProvider.setUserName("" + bean.getUser_nickname());
+        MyApplication.mPreferenceProvider.setUserName("" + bean.getNickname());
         MyApplication.mPreferenceProvider.setMobile("" + bean.getMobile());
-        MyApplication.mPreferenceProvider.setPhoto("" + bean.getHead_img());
+        MyApplication.mPreferenceProvider.setPhoto("" + bean.getAvatar());
         MyApplication.mPreferenceProvider.setLevel("" + bean.getUser_vip());
-        EMClient.getInstance().login("" + MyApplication.mPreferenceProvider.getUId(),
-                "abc123456", new EMCallBack() {//回调
-                    @Override
-                    public void onSuccess() {
-                        EMClient.getInstance().groupManager().loadAllGroups();
-                        EMClient.getInstance().chatManager().loadAllConversations();
-                        LogUtils.e("TAG", "登录聊天服务器成功！");
-                    }
-
-                    @Override
-                    public void onProgress(int progress, String status) {
-
-                    }
-
-                    @Override
-                    public void onError(int code, String message) {
-                        LogUtils.e("TAG", "登录聊天服务器失败！");
-                        registerIm();
-                    }
-                });
+//        EMClient.getInstance().login("" + MyApplication.mPreferenceProvider.getUId(),
+//                "abc123456", new EMCallBack() {//回调
+//                    @Override
+//                    public void onSuccess() {
+//                        EMClient.getInstance().groupManager().loadAllGroups();
+//                        EMClient.getInstance().chatManager().loadAllConversations();
+//                        LogUtils.e("TAG", "登录聊天服务器成功！");
+//                    }
+//
+//                    @Override
+//                    public void onProgress(int progress, String status) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(int code, String message) {
+//                        LogUtils.e("TAG", "登录聊天服务器失败！");
+//                        registerIm();
+//                    }
+//                });
 //        login();
     }
 
@@ -252,22 +252,22 @@ public class LoginCheckUtils {
         MyApplication.mPreferenceProvider.setInvitationCode("");
         MyApplication.mPreferenceProvider.setLevel("0");
         MyApplication.mPreferenceProvider.setLastTime("");
-        EMClient.getInstance().logout(true, new EMCallBack() {
-            @Override
-            public void onSuccess() {
-                LogUtils.e("TAG", "退出聊天服务器成功");
-            }
-
-            @Override
-            public void onError(int code, String error) {
-                LogUtils.e("TAG", "退出聊天服务器失败");
-            }
-
-            @Override
-            public void onProgress(int progress, String status) {
-
-            }
-        });
+//        EMClient.getInstance().logout(true, new EMCallBack() {
+//            @Override
+//            public void onSuccess() {
+//                LogUtils.e("TAG", "退出聊天服务器成功");
+//            }
+//
+//            @Override
+//            public void onError(int code, String error) {
+//                LogUtils.e("TAG", "退出聊天服务器失败");
+//            }
+//
+//            @Override
+//            public void onProgress(int progress, String status) {
+//
+//            }
+//        });
         clearAuthLogin(activity);
 //        mSpUtils = new SpSaveListUtils(activity, mSpTag);
 //        mSpUtils.clearList(mSpTag);

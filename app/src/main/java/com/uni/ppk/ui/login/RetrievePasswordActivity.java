@@ -128,13 +128,13 @@ public class RetrievePasswordActivity extends BaseActivity {
             return;
         }
         if (!InputCheckUtil.isLetterDigit(pwd)) {
-            ToastUtils.show(mContext, "密码必须是数字加字母");
+            ToastUtils.show(mContext, "请输入密码(6~12位字母+数字)");
             return;
         }
         Map<String, Object> params = new HashMap<>();
         params.put("mobile", "" + phone);
-        params.put("code", "" + code);
-        params.put("type", "2");
+        params.put("captcha", "" + code);
+        params.put("event", "forget");
         params.put("password", "" + pwd);
         HttpUtils.forget(mContext, params, new MyCallBack() {
             @Override
@@ -168,7 +168,7 @@ public class RetrievePasswordActivity extends BaseActivity {
         }
         Map<String, Object> params = new HashMap<>();
         params.put("mobile", "" + phone);
-        params.put("type", "2");
+        params.put("event", "forget");
         HttpUtils.sendMessage(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {

@@ -19,6 +19,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.uni.commoncore.utils.InputCheckUtil;
 import com.uni.commoncore.utils.JSONUtils;
 import com.uni.commoncore.utils.LogUtils;
+import com.uni.commoncore.utils.PlatformUtils;
 import com.uni.commoncore.utils.RxBus;
 import com.uni.commoncore.utils.StatusBarUtils;
 import com.uni.commoncore.utils.StringUtils;
@@ -146,7 +147,7 @@ public class PwdLoginActivity extends BaseActivity {
                     ToastUtils.show(mContext, "获取授权失败");
                     return;
                 }
-                thirdLogin(JSONUtils.getNoteJson(o, "access_token"), "3", "", "");
+//                thirdLogin(JSONUtils.getNoteJson(o, "access_token"), "3", "", "");
             }
 
             @Override
@@ -197,12 +198,12 @@ public class PwdLoginActivity extends BaseActivity {
                 break;
             //微信登录
             case R.id.iv_wx_login:
+                thirdLogin("111");
 //                if (!PlatformUtils.isWeixinAvilible(mContext)) {
 //                    ToastUtils.show(mContext, "请安装微信");
 //                    return;
 //                }
 //                loginByThirdPlatform(SHARE_MEDIA.WEIXIN);
-                login();
                 break;
         }
     }
@@ -220,6 +221,7 @@ public class PwdLoginActivity extends BaseActivity {
     //登录
     private void login() {
         String phone = edtPhone.getText().toString().trim();
+        String pwd = edtPwd.getText().toString().trim();
         if (StringUtils.isEmpty(phone)) {
             ToastUtils.show(mContext, "请输入手机号");
             return;
@@ -228,43 +230,44 @@ public class PwdLoginActivity extends BaseActivity {
             ToastUtils.show(mContext, "请输入正确的手机号");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("phone", "" + phone);
-        MyApplication.openActivity(mContext, CodeActivity.class, bundle);
-//        if (StringUtils.isEmpty(password)) {
-//            toast(getString(R.string.password_not_null));
-//            return;
-//        }
-//        if (password.length() < 6) {
-//            ToastUtils.show(mContext, "密码至少六位");
-//            return;
-//        }
-//        Map<String, Object> params = new HashMap<>();
-//        params.put("mobile", "" + phone);
-//        params.put("password", "" + password);
-//        HttpUtils.login(mContext, params, new MyCallBack() {
-//            @Override
-//            public void onSuccess(String response, String msg) {
-//                LoginBean bean = JSONUtils.parserObject(response, "userinfo", LoginBean.class);
-//                if (bean != null) {
-//                    LoginCheckUtils.saveLoginInfo(bean);
-//                    MyApplication.openActivity(mContext, MainActivity.class);
-//                    finish();
-//                } else {
-//                    ToastUtils.show(mContext, msg);
-//                }
-//            }
-//
-//            @Override
-//            public void onError(String msg, int code) {
-//                ToastUtils.show(mContext, msg);
-//            }
-//
-//            @Override
-//            public void onFail(Call call, IOException e) {
-//                ToastUtils.show(mContext, getString(R.string.service_error));
-//            }
-//        });
+        if (StringUtils.isEmpty(pwd)) {
+            toast(getString(R.string.password_not_null));
+            return;
+        }
+        if (pwd.length() < 6) {
+            ToastUtils.show(mContext, "请输入密码(6~12位字母+数字)");
+            return;
+        }
+        if (!InputCheckUtil.isLetterDigit(pwd)) {
+            toast("请输入密码(6~12位字母+数字)");
+            return;
+        }
+        Map<String, Object> params = new HashMap<>();
+        params.put("mobile", "" + phone);
+        params.put("password", "" + pwd);
+        HttpUtils.login(mContext, params, new MyCallBack() {
+            @Override
+            public void onSuccess(String response, String msg) {
+                LoginBean bean = JSONUtils.parserObject(response, "user", LoginBean.class);
+                if (bean != null) {
+                    LoginCheckUtils.saveLoginInfo(bean);
+                    MyApplication.openActivity(mContext, MainActivity.class);
+                    finish();
+                } else {
+                    ToastUtils.show(mContext, msg);
+                }
+            }
+
+            @Override
+            public void onError(String msg, int code) {
+                ToastUtils.show(mContext, msg);
+            }
+
+            @Override
+            public void onFail(Call call, IOException e) {
+                ToastUtils.show(mContext, getString(R.string.service_error));
+            }
+        });
     }
 
     //验证码登录
@@ -380,8 +383,7 @@ public class PwdLoginActivity extends BaseActivity {
                 if (share_media == SHARE_MEDIA.QQ) {
 //                    thirdLogin(map.get("openid"), "2");
                 } else if (share_media == SHARE_MEDIA.WEIXIN) {
-                    mWxId = map.get("openid");
-                    thirdLogin(map.get("unionid"), "1", map.get("iconurl"), map.get("name"));
+                    thirdLogin(map.get("unionid"));
                 }
                 LogUtils.e("TAG", "三方登录----" + JSONUtils.toJsonString(map));
             }
@@ -414,30 +416,13 @@ public class PwdLoginActivity extends BaseActivity {
         UMShareAPI.get(mContext).getPlatformInfo(mContext, platform, authListener);
     }
 
-    private String mWxId = "";
-
-    private void thirdLogin(String openId, String type, String header, String name) {
+    private void thirdLogin(String openId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("type", "" + type);
-        //type【登录类型1：微信，2：QQ，3：抖音，4：支付宝】
-        switch (type) {
-            case "1":
-                params.put("wx_unionid", "" + openId);
-                break;
-            case "2":
-                params.put("qq_unionid", "" + openId);
-                break;
-            case "3":
-                params.put("dy_unionid", "" + openId);
-                break;
-            case "4":
-                params.put("alipay_unionid", "" + openId);
-                break;
-        }
+        params.put("openId", "" + openId);
         HttpUtils.thirdLogin(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {
-                LoginBean bean = JSONUtils.parserObject(response, "userinfo", LoginBean.class);
+                LoginBean bean = JSONUtils.parserObject(response, "user", LoginBean.class);
                 if (bean != null) {
                     LoginCheckUtils.saveLoginInfo(bean);
                     MyApplication.openActivity(mContext, MainActivity.class);
@@ -449,13 +434,9 @@ public class PwdLoginActivity extends BaseActivity {
 
             @Override
             public void onError(String msg, int code) {
-                if (code == -999) {
+                if (code == 0) {
                     Bundle bundle = new Bundle();
                     bundle.putString("openId", "" + openId);
-                    bundle.putString("type", "" + type);
-                    bundle.putString("wxId", "" + mWxId);
-                    bundle.putString("header", "" + header);
-                    bundle.putString("nickName", "" + name);
                     MyApplication.openActivity(mContext, BindPhoneActivity.class, bundle);
                 } else {
                     ToastUtils.show(mContext, msg);
@@ -531,7 +512,7 @@ public class PwdLoginActivity extends BaseActivity {
             public void onSuccess(String response, String msg) {
                 String userId = JSONUtils.getNoteJson(response, "user_id");
                 if (!StringUtils.isEmpty(userId)) {
-                    thirdLogin(userId, "4", "", "");
+                    thirdLogin(userId);
                 }
             }
 

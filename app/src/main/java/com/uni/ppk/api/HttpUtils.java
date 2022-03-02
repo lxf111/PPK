@@ -27,14 +27,14 @@ public class HttpUtils {
      * 密码登录
      */
     public static void login(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
-        getData(mContent, params, "5c78dbfd977cf", callBack, true);
+        getData(mContent, params, "user/login", callBack, true);
     }
 
     /**
      * 验证码登录
      */
     public static void codeLogin(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
-        getData(mContent, params, "5c78dca45ebc1", callBack, true);
+        getData(mContent, params, "user/loginOrRegister", callBack, true);
     }
 
     /**
@@ -64,14 +64,14 @@ public class HttpUtils {
      * 忘记密码
      */
     public static void forget(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
-        getData(mContent, params, "5caeeba9866aa", callBack, true);
+        getData(mContent, params, "user/forgetPwd", callBack, true);
     }
 
     /**
      * 三方登录
      */
     public static void thirdLogin(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
-        getData(mContent, params, "5d7660a421e69", callBack, true);
+        getData(mContent, params, "user/mobileThirdLogin", callBack, true);
     }
 
     /**
@@ -85,7 +85,7 @@ public class HttpUtils {
      * 绑定手机号
      */
     public static void bindPhone(Activity mContent, Map<String, Object> params, MyCallBack callBack) {
-        getData(mContent, params, "5d7757d28d076", callBack, true);
+        getData(mContent, params, "user/bindOpenId", callBack, true);
     }
 
     /**

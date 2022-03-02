@@ -1,5 +1,7 @@
 package com.uni.ppk.ui.login.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -37,6 +39,35 @@ public class LoginBean implements Serializable {
     private String city;
     private String city_id;
     private String client_id;
+    private int age;
+    private String authMobile;
+    private int authStatus;
+    private int authType;
+    private String avatar;
+    private String backCardId;
+    private String cardId;
+    private String companyAddress;
+    private String companyCreditCode;
+    private String companyLegal;
+    private String companyLicense;
+    private String companyName;
+    private String companyScale;
+    private String createBy;
+    private String createTime;
+    private int delFlag;
+    private String frontCardId;
+    private String mobileEncrypt;
+    private String nation;
+    private String nickname;
+    private String password;
+    private int passwordSecurityLevel;
+    private String salt;
+    private int status;
+    private String token;
+    private String updateBy;
+    private Object updateTime;
+    private String username;
+    private int workYear;
 
     public String getUser_vip() {
         return user_vip;
@@ -140,5 +171,237 @@ public class LoginBean implements Serializable {
 
     public void setClient_id(String client_id) {
         this.client_id = client_id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAuthMobile() {
+        return authMobile;
+    }
+
+    public void setAuthMobile(String authMobile) {
+        this.authMobile = authMobile;
+    }
+
+    public int getAuthStatus() {
+        return authStatus;
+    }
+
+    public void setAuthStatus(int authStatus) {
+        this.authStatus = authStatus;
+    }
+
+    public int getAuthType() {
+        return authType;
+    }
+
+    public void setAuthType(int authType) {
+        this.authType = authType;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getBackCardId() {
+        return backCardId;
+    }
+
+    public void setBackCardId(String backCardId) {
+        this.backCardId = backCardId;
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getCompanyAddress() {
+        return companyAddress;
+    }
+
+    public void setCompanyAddress(String companyAddress) {
+        this.companyAddress = companyAddress;
+    }
+
+    public String getCompanyCreditCode() {
+        return companyCreditCode;
+    }
+
+    public void setCompanyCreditCode(String companyCreditCode) {
+        this.companyCreditCode = companyCreditCode;
+    }
+
+    public String getCompanyLegal() {
+        return companyLegal;
+    }
+
+    public void setCompanyLegal(String companyLegal) {
+        this.companyLegal = companyLegal;
+    }
+
+    public String getCompanyLicense() {
+        return companyLicense;
+    }
+
+    public void setCompanyLicense(String companyLicense) {
+        this.companyLicense = companyLicense;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyScale() {
+        return companyScale;
+    }
+
+    public void setCompanyScale(String companyScale) {
+        this.companyScale = companyScale;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public int getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(int delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getFrontCardId() {
+        return frontCardId;
+    }
+
+    public void setFrontCardId(String frontCardId) {
+        this.frontCardId = frontCardId;
+    }
+
+    public String getMobileEncrypt() {
+        return mobileEncrypt;
+    }
+
+    public void setMobileEncrypt(String mobileEncrypt) {
+        this.mobileEncrypt = mobileEncrypt;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getPasswordSecurityLevel() {
+        return passwordSecurityLevel;
+    }
+
+    public void setPasswordSecurityLevel(int passwordSecurityLevel) {
+        this.passwordSecurityLevel = passwordSecurityLevel;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Object getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Object updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getWorkYear() {
+        return workYear;
+    }
+
+    public void setWorkYear(int workYear) {
+        this.workYear = workYear;
     }
 }

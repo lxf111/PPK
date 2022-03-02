@@ -66,10 +66,6 @@ public class BindPhoneActivity extends BaseActivity {
     @BindView(R.id.tv_login)
     TextView tvLogin;
     private String mOpenId = "";
-    private String mSelectType = "";
-    private String mHeader = "";
-    private String mNiceName = "";
-    private String mWxId = "";
 
     @Override
     protected int getLayoutId() {
@@ -80,10 +76,6 @@ public class BindPhoneActivity extends BaseActivity {
     protected void initData() {
         viewTop.getLayoutParams().height = StatusBarUtils.getStatusBarHeight(mContext);
         mOpenId = getIntent().getStringExtra("openId");
-        mSelectType = getIntent().getStringExtra("type");
-        mHeader = getIntent().getStringExtra("header");
-        mNiceName = getIntent().getStringExtra("nickName");
-        mWxId = getIntent().getStringExtra("wxId");
     }
 
     @OnClick({R.id.tv_code, R.id.tv_login})
@@ -126,26 +118,20 @@ public class BindPhoneActivity extends BaseActivity {
             return;
         }
         if (!InputCheckUtil.isLetterDigit(pwd)) {
-            ToastUtils.show(mContext, "密码必须是数字加字母");
+            ToastUtils.show(mContext, "请输入密码(6~12位字母+数字)");
             return;
         }
         Map<String, Object> params = new HashMap<>();
-        params.put("unionId", "" + mOpenId);
-        params.put("bind_type", "" + mSelectType);
-        params.put("avatarUrl", "" + mHeader);
-        params.put("nickName", "" + mNiceName);
-        params.put("client_id", "" + phone);
-        if ("1".equals(mSelectType)) {
-            params.put("openId", "" + mWxId);
-        }
+        params.put("platform", "" + 1);
+        params.put("unionID", "" + mOpenId);
         params.put("mobile", "" + phone);
-        params.put("code", "" + code);
+        params.put("captcha", "" + code);
         params.put("password", "" + pwd);
-        params.put("type", "5");
+        params.put("event", "bindThird");
         HttpUtils.bindPhone(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {
-                LoginBean bean = JSONUtils.parserObject(response, "userinfo", LoginBean.class);
+                LoginBean bean = JSONUtils.parserObject(response, "user", LoginBean.class);
                 if (bean != null) {
                     LoginCheckUtils.saveLoginInfo(bean);
                     AppManager.getInstance().finishActivity(LoginActivity.class);
@@ -181,7 +167,7 @@ public class BindPhoneActivity extends BaseActivity {
         }
         Map<String, Object> params = new HashMap<>();
         params.put("mobile", "" + phone);
-        params.put("type", "5");
+        params.put("event", "bindThird");
         HttpUtils.sendMessage(mContext, params, new MyCallBack() {
             @Override
             public void onSuccess(String response, String msg) {
